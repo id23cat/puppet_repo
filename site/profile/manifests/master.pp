@@ -1,9 +1,9 @@
 class profile::master {
-  exec { 'docker exec -ti web.puppet.vm bash -c "/opt/puppetlabs/bin/puppet agent -t"':
+  exec { 'docker exec web.puppet.vm /opt/puppetlabs/bin/puppet agent -t':
 	path	=> '/bin',
   }
   
-  exec { 'docker exec -ti db.puppet.vm bash -c "/opt/puppetlabs/bin/puppet agent -t"':
-	path	=> '/bin',
+  exec { 'docker exec db.puppet.vm /opt/puppetlabs/bin/puppet agent -t':
+	path	=> '/bin:/usr/bin',
   }
 }
